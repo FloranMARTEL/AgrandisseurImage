@@ -40,7 +40,7 @@ class ParametrageView(Frame):
         frameSlider = Frame(frameRight,highlightbackground="Black", highlightthickness=2)
         
         self.valeurSlider = IntVar()
-        self.sliderDimention = Scale(frameSlider,variable=self.valeurSlider,  from_=1, to=100,length=146,orient = HORIZONTAL) #logaritmique
+        self.sliderDimention = Scale(frameSlider,variable=self.valeurSlider, from_=1, to=100,length=146,orient = HORIZONTAL) #logaritmique
         self.BoutonPlusSlider = Button(frameSlider,text="Plus")
 
         #grid
@@ -61,8 +61,27 @@ class ParametrageView(Frame):
         frameRight.grid(row=0,column=1,sticky=S)
 
 
-        self.image.update()
-        print(self.image.winfo_height()," :: ",self.image.winfo_width())
+        
+    
+    def modifierImageSelectioner(self,cheminFichier):
+        
+        img = Image.open(cheminFichier)
+
+        imgl,imgh = img.size
+        coterMax = imgl if imgl > imgh else imgh
+        
+
+        imageLongeurCoter = self.image.winfo_width()
+
+        multiplicateur = (imageLongeurCoter-4)//coterMax
+
+        resize_image = img.resize((imgl*multiplicateur, imgh*multiplicateur),Image.NEAREST)
+        imgTK = ImageTk.PhotoImage(resize_image)
+ 
+        self.image.configure(image=imgTK)
+        self.image.image = imgTK
+
+
         
 
     

@@ -4,6 +4,8 @@ import View
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 
+from Model.model import agrendire
+
 from PIL import Image, ImageTk
 
 class EcouteurSelectionImage():
@@ -18,11 +20,8 @@ class EcouteurSelectionImage():
 
         self.EnregistrerView.cheminVersImage.insert(0, cheminFichier)
 
-        image = Image.open(cheminFichier)
-        resize_image = image.resize((100, 100))
-        img = ImageTk.PhotoImage(resize_image)
- 
-        self.EnregistrerView.image.configure(image=img)
-        self.EnregistrerView.image.image = img
+        self.EnregistrerView.modifierImageSelectioner(cheminFichier)
+
+        
 
         
