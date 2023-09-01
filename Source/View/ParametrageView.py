@@ -1,5 +1,8 @@
 from tkinter import *
 from PIL import Image, ImageTk
+from tkinter import messagebox
+
+from View import *
 
 
 
@@ -12,7 +15,7 @@ class ParametrageView(Frame):
         frameLeft = Frame(self)
 
         image = Image.open("Source\\assets\imageAucunImage.png")
-        #resize_image = image.resize((300, 100))
+
         img = ImageTk.PhotoImage(image)
  
         self.image = Label(frameLeft,image=img, width=350, height=350, borderwidth=2, relief="solid")
@@ -39,8 +42,8 @@ class ParametrageView(Frame):
 
         frameSlider = Frame(frameRight,highlightbackground="Black", highlightthickness=2)
         
-        self.valeurSlider = IntVar()
-        self.sliderDimention = Scale(frameSlider,variable=self.valeurSlider, from_=1, to=100,length=146,orient = HORIZONTAL) #logaritmique
+        
+        self.sliderDimention = Slider(frameSlider,"mutliplicateur",100) #logaritmique
         self.BoutonPlusSlider = Button(frameSlider,text="Plus")
 
         #grid
@@ -64,8 +67,14 @@ class ParametrageView(Frame):
         
     
     def modifierImageSelectioner(self,cheminFichier):
+
+        try:
+            img = Image.open(cheminFichier)
+        except:
+            messagebox.showerror(title="Erreur", message="Le chemin vers l'image n'est pas correcte")
+            return 
         
-        img = Image.open(cheminFichier)
+        
 
         imgl,imgh = img.size
         coterMax = imgl if imgl > imgh else imgh
@@ -85,5 +94,9 @@ class ParametrageView(Frame):
         
 
     
-    def fixButton(self,fonctionSeletionnerImage):
-        self.BoutonSelectionImage.bind('<Button-1>',fonctionSeletionnerImage)
+    def fixButton(self,fonctionSeletionnerImage,fonctionActualiserImage):
+        self.BoutonSelectionImage.bind("<Button-1>",fonctionSeletionnerImage)
+        self.boutonactualiserImage.bind("<Button-1>",fonctionActualiserImage)
+
+    def fixSlider(self,fonctionSlidermutiplicateur):
+        self.sliderDimention.fixSlider(fonctionSlidermutiplicateur)

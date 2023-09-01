@@ -13,8 +13,13 @@ class MainView(Tk):
         self.page : Frame = ParametrageView(self)
 
         ecouteurBoutonSeletionerImage = EcouteurSelectionImage(self.page)
+        ecouteurBoutonActualiserImage = EcouteurActialiserImage(self.page)
+        bindingSlidermult = BindingSlider(self.page.sliderDimention)
 
-        self.page.fixButton(ecouteurBoutonSeletionerImage.onAction)
+        self.page.fixButton(ecouteurBoutonSeletionerImage.onAction,ecouteurBoutonActualiserImage.onAction)
+        self.page.fixSlider(bindingSlidermult.OnAction)
+        
+
 
         self.historiquePage : list[Frame] = [self.page]
         self.page.pack()
