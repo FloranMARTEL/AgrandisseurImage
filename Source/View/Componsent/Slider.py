@@ -41,7 +41,8 @@ class Slider(Frame):
 
     def fixSlider(self,fonction):
         self.slider.bind("<B1-Motion>",fonction)
-        self.entryValier.bind("<FocusIn>",fonction)
+        self.slider.bind("<FocusOut>",fonction)
+        self.entryValier.bind("<FocusOut>",fonction)
         self.entryValier.bind("<Return>",fonction)
 
         

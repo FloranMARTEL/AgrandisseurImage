@@ -43,20 +43,21 @@ class ParametrageView(Frame):
         frameSlider = Frame(frameRight,highlightbackground="Black", highlightthickness=2)
         
         
-        self.sliderDimention = Slider(frameSlider,"mutliplicateur",100) #logaritmique
+        self.sliderDimention = Slider(frameSlider,"mutliplicateur",300) #logaritmique
         self.BoutonPlusSlider = Button(frameSlider,text="Plus")
 
         #grid
         self.sliderDimention.grid(row=0,column=0)
         self.BoutonPlusSlider.grid(row=1,column=0,sticky=E)
 
-        self.imageAgrendismenten = Canvas(frameRight,highlightbackground="Black", highlightthickness=2)
+        self.imageAgrendissement = Canvas(frameRight,height=300,width=300,highlightbackground="Black", highlightthickness=2)
+        
 
         self.BoutonValider = Button(frameRight,text="Valider")
 
         #grid
         frameSlider.grid(row=0,column=0,sticky=E)
-        self.imageAgrendismenten.grid(row=1,column=0,sticky=E)
+        self.imageAgrendissement.grid(row=1,column=0,sticky=E)
         self.BoutonValider.grid(row=2,column=0,sticky=E)
 
         #grid
@@ -90,10 +91,43 @@ class ParametrageView(Frame):
         self.image.configure(image=imgTK)
         self.image.image = imgTK
 
+    def modifierImageAgrendissement(self,cheminFichier,AgrendiementX,AgrendiementY):
 
+        try:
+            img = Image.open(cheminFichier)
+        except:
+            return
         
+        dimentionImage = img.size
+        dimentionImageAgrendi = (dimentionImage[0]*AgrendiementX,dimentionImage[1]*AgrendiementY)
+        
+        longeurCoterImageAgrensiement = (self.imageAgrendissement.winfo_width()-10)
 
-    
+        if dimentionImageAgrendi[0] > dimentionImageAgrendi[1]:
+            dimentionImageMax = dimentionImageAgrendi[0]
+        else:
+            dimentionImageMax = dimentionImageAgrendi[1]
+        
+        rasio = longeurCoterImageAgrensiement/dimentionImageMax
+
+        dimentionImageRectangleL = dimentionImage[0] * rasio
+        dimentionImageRectangleH = dimentionImage[1] * rasio
+
+        dimentionImageRectangleAL = dimentionImageAgrendi[0] * rasio
+        dimentionImageRectangleAH = dimentionImageAgrendi[1] * rasio
+
+        decalagex = (self.imageAgrendissement.winfo_width() - dimentionImageRectangleL) // 2
+        decalagey = (self.imageAgrendissement.winfo_width() - dimentionImageRectangleH) // 2
+
+        decalageAx = (self.imageAgrendissement.winfo_width() - dimentionImageRectangleAL) // 2
+        decalageAy = (self.imageAgrendissement.winfo_width() - dimentionImageRectangleAH) // 2
+
+        self.imageAgrendissement.delete("all")
+        self.imageAgrendissement.create_rectangle((decalageAx,decalageAy),(decalageAx+dimentionImageRectangleAL,decalageAy+dimentionImageRectangleAH),outline="black")
+        self.imageAgrendissement.create_rectangle((decalagex,decalagey),(decalagex+dimentionImageRectangleL,decalagey+dimentionImageRectangleH),outline="red")
+
+
+
     def fixButton(self,fonctionSeletionnerImage,fonctionActualiserImage):
         self.BoutonSelectionImage.bind("<Button-1>",fonctionSeletionnerImage)
         self.boutonactualiserImage.bind("<Button-1>",fonctionActualiserImage)

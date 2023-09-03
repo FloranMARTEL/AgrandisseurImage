@@ -20,6 +20,10 @@ class EcouteurSelectionImage():
 
         self.EnregistrerView.modifierImageSelectioner(cheminFichier)
 
+        valeurAgrendisement = self.EnregistrerView.sliderDimention.getValeur()
+        self.EnregistrerView.modifierImageAgrendissement(cheminFichier,valeurAgrendisement,valeurAgrendisement)
+
+
         
 
         

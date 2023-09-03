@@ -14,7 +14,7 @@ class MainView(Tk):
 
         ecouteurBoutonSeletionerImage = EcouteurSelectionImage(self.page)
         ecouteurBoutonActualiserImage = EcouteurActialiserImage(self.page)
-        bindingSlidermult = BindingSlider(self.page.sliderDimention)
+        bindingSlidermult = BindingSlider(self.page,self.page.sliderDimention)
 
         self.page.fixButton(ecouteurBoutonSeletionerImage.onAction,ecouteurBoutonActualiserImage.onAction)
         self.page.fixSlider(bindingSlidermult.OnAction)
