@@ -1,4 +1,5 @@
 from Controleur.EcouteurSelectionImage import EcouteurSelectionImage
 from Controleur.EcouteurActialiserImage import EcouteurActialiserImage
+from Controleur.EcouteurValider import EcouteurValdier
 
 from Controleur.BindingSlider import BindingSlider

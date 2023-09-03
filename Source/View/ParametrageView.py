@@ -128,9 +128,10 @@ class ParametrageView(Frame):
 
 
 
-    def fixButton(self,fonctionSeletionnerImage,fonctionActualiserImage):
+    def fixButton(self,fonctionSeletionnerImage,fonctionActualiserImage,fonctionValider):
         self.BoutonSelectionImage.bind("<Button-1>",fonctionSeletionnerImage)
         self.boutonactualiserImage.bind("<Button-1>",fonctionActualiserImage)
+        self.BoutonValider.bind("<Button-1>",fonctionValider)
 
     def fixSlider(self,fonctionSlidermutiplicateur):
         self.sliderDimention.fixSlider(fonctionSlidermutiplicateur)
