@@ -15,7 +15,7 @@ class ParametrageView(Frame):
         frameLeft = Frame(self)
 
         image = Image.open("Source\\assets\imageAucunImage.png")
-
+        
         img = ImageTk.PhotoImage(image)
  
         self.image = Label(frameLeft,image=img, width=350, height=350, borderwidth=2, relief="solid")
@@ -70,6 +70,7 @@ class ParametrageView(Frame):
     def modifierImageSelectioner(self,cheminFichier):
 
         try:
+            #image.close()
             img = Image.open(cheminFichier)
         except:
             messagebox.showerror(title="Erreur", message="Le chemin vers l'image n'est pas correcte")

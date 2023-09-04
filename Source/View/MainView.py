@@ -1,7 +1,6 @@
 from tkinter import *
 from View import *
 
-from Controleur import *
 
 class MainView(Tk):
 
@@ -12,21 +11,12 @@ class MainView(Tk):
 
         self.page : Frame = ParametrageView(self)
 
-        ecouteurBoutonSeletionerImage = EcouteurSelectionImage(self.page)
-        ecouteurBoutonActualiserImage = EcouteurActialiserImage(self.page)
-        ecouteurBoutonValider = EcouteurValdier(self.page)
-        bindingSlidermult = BindingSlider(self.page,self.page.sliderDimention)
-
-        self.page.fixButton(ecouteurBoutonSeletionerImage.onAction,ecouteurBoutonActualiserImage.onAction,ecouteurBoutonValider.OnAction)
-        self.page.fixSlider(bindingSlidermult.OnAction)
-        
-
 
         self.historiquePage : list[Frame] = [self.page]
         self.page.pack()
 
     
-    def gotTo(self,page : Frame):
+    def goTo(self,page : Frame):
         self.historiquePage.append(self.page)
         self.page.pack_forget()
         self.page = page

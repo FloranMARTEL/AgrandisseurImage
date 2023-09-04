@@ -4,7 +4,6 @@ import View
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 
-from Model.model import agrendire
 
 from PIL import Image, ImageTk
 

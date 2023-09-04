@@ -1,3 +1,9 @@
+
+from Controleur.EcouteurModifier import EcouteurModifier
+from Controleur.EcouteurEnregistrer import EcouteurEnregistrer
+from Controleur.EcouteurNouveau import EcouteurNouveau
+from Controleur.EcouteurFermer import EcouteurFermer
+
 from Controleur.EcouteurSelectionImage import EcouteurSelectionImage
 from Controleur.EcouteurActialiserImage import EcouteurActialiserImage
 from Controleur.EcouteurValider import EcouteurValdier

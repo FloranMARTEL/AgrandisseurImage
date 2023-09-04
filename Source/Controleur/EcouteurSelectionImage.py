@@ -4,7 +4,6 @@ from View import ParametrageView
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 
-from Model.model import agrendire
 
 class EcouteurSelectionImage():
 
