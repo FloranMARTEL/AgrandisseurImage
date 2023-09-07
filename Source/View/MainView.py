@@ -16,6 +16,16 @@ class MainView(Tk):
         self.page.pack()
 
     
+    def new(self):
+        self.goBack()
+        for w in self.page.winfo_children():
+            w.destroy()
+        
+        self.page.make()
+        
+        #self.page.pack()
+
+    
     def goTo(self,page : Frame):
         self.historiquePage.append(self.page)
         self.page.pack_forget()

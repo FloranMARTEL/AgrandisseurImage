@@ -15,8 +15,8 @@ class EnregistrerView(Frame):
         else:
             cotermax = coter[1]
 
-        ratio = 350//cotermax
-        image = image.resize((coter[0]*ratio, coter[1]*ratio),Image.NEAREST)
+        ratio = 350/cotermax
+        image = image.resize((int(coter[0]*ratio), int(coter[1]*ratio)),Image.NEAREST)
         imgtk = ImageTk.PhotoImage(image)
         image = Label(self,image=imgtk,width=350,height=350, borderwidth=2, relief="solid")
         image.image = imgtk
@@ -28,6 +28,7 @@ class EnregistrerView(Frame):
         textnom = Label(frameNom,text="Nom :")
 
         self.valeur = StringVar()
+        self.valeur.set(nomfichier+"_"+str(AgrendisementX*coter[0])+"x"+str(AgrendisementY*coter[1])+nomExtension)
 
         if AgrendisementY == AgrendisementX:
             textRadio1 :str = (nomfichier+"_X"+str(AgrendisementX)+nomExtension)

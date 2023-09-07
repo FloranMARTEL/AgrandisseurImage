@@ -4,6 +4,8 @@ import Model
 
 from tkinter.filedialog import askdirectory
 
+from tkinter import messagebox
+
 
 class EcouteurEnregistrer():
 
@@ -18,6 +20,10 @@ class EcouteurEnregistrer():
         #        tkFileDialog.askdirectory(initialdir="/",title='Choisissez un repertoire')
 
         destination = askdirectory()
-        nomFichier = self.view.getNomFichier()
-        
-        self.model.sauvgarder(destination,nomFichier)
+        if destination != "":
+            nomFichier = self.view.getNomFichier()
+
+            if nomFichier == "":
+                messagebox.showerror(title="Erreur", message="vous n'avoiez pas choisie de nom")
+            else:
+                self.model.sauvgarder(destination,nomFichier)

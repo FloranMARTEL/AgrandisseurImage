@@ -11,7 +11,8 @@ class ModelEnregistrement():
     
     def sauvgarder(self,cheminDossier,NomFichier):
         
-        destination = cheminDossier+"\\"+NomFichier
+        destination = cheminDossier+"/"+NomFichier
+        print(destination)
         self.image.save(destination)
 
     

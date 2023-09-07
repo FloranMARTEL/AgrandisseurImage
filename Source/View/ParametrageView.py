@@ -10,7 +10,9 @@ class ParametrageView(Frame):
 
     def __init__(self,master):
         super().__init__(master)
+        self.make()
 
+    def make(self):
         #FrameLeft
         frameLeft = Frame(self)
 
@@ -70,7 +72,6 @@ class ParametrageView(Frame):
     def modifierImageSelectioner(self,cheminFichier):
 
         try:
-            #image.close()
             img = Image.open(cheminFichier)
         except:
             messagebox.showerror(title="Erreur", message="Le chemin vers l'image n'est pas correcte")
@@ -84,9 +85,9 @@ class ParametrageView(Frame):
 
         imageLongeurCoter = self.image.winfo_width()
 
-        multiplicateur = (imageLongeurCoter-4)//coterMax
+        multiplicateur = (imageLongeurCoter-4)/coterMax
 
-        resize_image = img.resize((imgl*multiplicateur, imgh*multiplicateur),Image.NEAREST)
+        resize_image = img.resize((int(imgl*multiplicateur), int(imgh*multiplicateur)),Image.NEAREST)
         imgTK = ImageTk.PhotoImage(resize_image)
  
         self.image.configure(image=imgTK)
@@ -133,6 +134,16 @@ class ParametrageView(Frame):
         self.BoutonSelectionImage.bind("<Button-1>",fonctionSeletionnerImage)
         self.boutonactualiserImage.bind("<Button-1>",fonctionActualiserImage)
         self.BoutonValider.bind("<Button-1>",fonctionValider)
+        
+        self.fonctionSeletionnerImage = fonctionSeletionnerImage
+        self.fonctionActualiserImage = fonctionActualiserImage
+        self.fonctionValider = fonctionValider
+    
 
     def fixSlider(self,fonctionSlidermutiplicateur):
         self.sliderDimention.fixSlider(fonctionSlidermutiplicateur)
+        self.fonctionSlidermutiplicateur = fonctionSlidermutiplicateur
+
+    
+    def getFonction(self):
+        return self.fonctionSeletionnerImage,self.fonctionActualiserImage,self.fonctionValider,self.fonctionSlidermutiplicateur

@@ -1,5 +1,6 @@
 
 from View.MainView import MainView
+from Controleur import *
 
 class EcouteurNouveau():
 
@@ -9,7 +10,11 @@ class EcouteurNouveau():
     
 
     def OnAction(self, event):
-        self.view.quit()
+        f1, f2, f3,bi = self.view.historiquePage[0].getFonction()
 
-        newvue = MainView()        
-        newvue.mainloop()
+        self.view.new()
+
+        self.view.page.fixButton(f1, f2, f3)
+        self.view.page.fixSlider(bi)
+
+        
