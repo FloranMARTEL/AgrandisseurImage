@@ -17,8 +17,6 @@ class EcouteurEnregistrer():
 
     def OnAction(self, event):
 
-        #        tkFileDialog.askdirectory(initialdir="/",title='Choisissez un repertoire')
-
         destination = askdirectory()
         if destination != "":
             nomFichier = self.view.getNomFichier()
