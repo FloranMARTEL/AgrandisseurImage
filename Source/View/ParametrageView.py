@@ -19,14 +19,15 @@ class ParametrageView(Frame):
         image = Image.open("Source\\assets\imageAucunImage.png")
         
         img = ImageTk.PhotoImage(image)
- 
-        self.image = Label(frameLeft,image=img, width=350, height=350, borderwidth=2, relief="solid")
+
+        longeurcoterImage = 400
+        self.image = Label(frameLeft,image=img, width=longeurcoterImage, height=longeurcoterImage, borderwidth=2, relief="solid")
         self.image.image = img
 
         frameInputSelectionImage = Frame(frameLeft)
 
         self.BoutonSelectionImage = Button(frameInputSelectionImage,text="choisire une image")
-        self.cheminVersImage = Entry(frameInputSelectionImage)
+        self.cheminVersImage = Entry(frameInputSelectionImage,width=40)
         self.boutonactualiserImage = Button(frameInputSelectionImage,text="🗘")
 
         #grid
@@ -35,8 +36,8 @@ class ParametrageView(Frame):
         self.boutonactualiserImage.grid(row=0,column=2)
 
         #grid
-        self.image.grid(row=0,column=0)
-        frameInputSelectionImage.grid(row=1,column=0)
+        self.image.grid(row=0,column=0,sticky=N)
+        frameInputSelectionImage.grid(row=1,column=0,sticky=S)
         
 
         #FrameRight
@@ -45,7 +46,7 @@ class ParametrageView(Frame):
         frameSlider = Frame(frameRight,highlightbackground="Black", highlightthickness=2)
         
         
-        self.sliderDimention = Slider(frameSlider,"mutliplicateur",300) #logaritmique
+        self.sliderDimention = Slider(frameSlider,"mutliplicateur",300)
         self.BoutonPlusSlider = Button(frameSlider,text="Plus")
 
         #grid
@@ -55,16 +56,17 @@ class ParametrageView(Frame):
         self.imageAgrendissement = Canvas(frameRight,height=300,width=300,highlightbackground="Black", highlightthickness=2)
         
 
-        self.BoutonValider = Button(frameRight,text="Valider")
-
         #grid
-        frameSlider.grid(row=0,column=0,sticky=E)
+        frameSlider.grid(row=0,column=0,sticky=E,pady=(0,5))
         self.imageAgrendissement.grid(row=1,column=0,sticky=E)
-        self.BoutonValider.grid(row=2,column=0,sticky=E)
+
+        #Bouton Valider
+        self.BoutonValider = Button(self,text="Valider",width=60)
 
         #grid
-        frameLeft.grid(row=0,column=0,sticky=S)
-        frameRight.grid(row=0,column=1,sticky=S)
+        frameLeft.grid(row=0,column=0,sticky=N,padx=5,pady=10)
+        frameRight.grid(row=0,column=1,sticky=N,padx=5,pady=10)
+        self.BoutonValider.grid(row=1,column=0,columnspan=2)
 
 
         

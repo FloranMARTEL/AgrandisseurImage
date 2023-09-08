@@ -8,12 +8,17 @@ class MainView(Tk):
         super().__init__()
 
         self.title("Agrendisseur Image")
+        self.iconbitmap('Source\\assets\\icon_X10.ico')
+        self.resizable(width=False, height=False)
+
 
         self.page : Frame = ParametrageView(self)
 
-
         self.historiquePage : list[Frame] = [self.page]
         self.page.pack()
+
+        #self.update()
+        #print(self.winfo_width(),self.winfo_height())
 
     
     def new(self):

@@ -22,6 +22,7 @@ class EcouteurEnregistrer():
             nomFichier = self.view.getNomFichier()
 
             if nomFichier == "":
-                messagebox.showerror(title="Erreur", message="vous n'avoiez pas choisie de nom")
+                messagebox.showerror(title="Erreur", message="vous n'avez pas choisie de nom")
             else:
                 self.model.sauvgarder(destination,nomFichier)
+                messagebox.showinfo(title="Succès", message="l'image a bien été enregistrer")

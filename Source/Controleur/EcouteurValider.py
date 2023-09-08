@@ -5,6 +5,8 @@ from Controleur import *
 
 from PIL import Image
 
+from tkinter import messagebox
+
 class EcouteurValdier:
 
     def __init__(self,parametrageView : View.ParametrageView) -> None:
@@ -16,6 +18,10 @@ class EcouteurValdier:
         cheminImage = self.parametrageView.cheminVersImage.get()
         valeurAgrendissementX = self.parametrageView.sliderDimention.getValeur()
         valeurAgrendissementY = self.parametrageView.sliderDimention.getValeur()
+
+        if cheminImage == "":
+            messagebox.showerror(title="Erreur", message="Le chemin vers l'image n'est pas correcte")
+            return
 
         image = Image.open(cheminImage)
         
