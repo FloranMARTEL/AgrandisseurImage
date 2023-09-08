@@ -15,6 +15,7 @@ class EcouteurSelectionImage():
 
         cheminFichier = askopenfilename()
 
+        self.EnregistrerView.cheminVersImage.delete(0,"end")
         self.EnregistrerView.cheminVersImage.insert(0, cheminFichier)
 
         self.EnregistrerView.modifierImageSelectioner(cheminFichier)

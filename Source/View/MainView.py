@@ -8,7 +8,7 @@ class MainView(Tk):
         super().__init__()
 
         self.title("Agrendisseur Image")
-        self.iconbitmap('Source\\assets\\icon_X10.ico')
+        self.iconbitmap('assets/icon_X10.ico')
         self.resizable(width=False, height=False)
 
 
@@ -23,10 +23,10 @@ class MainView(Tk):
     
     def new(self):
         self.goBack()
-        for w in self.page.winfo_children():
-            w.destroy()
+
+        self.page.restart()
         
-        self.page.make()
+        #self.page.make()
         
         #self.page.pack()
 

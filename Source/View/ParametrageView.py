@@ -16,7 +16,7 @@ class ParametrageView(Frame):
         #FrameLeft
         frameLeft = Frame(self)
 
-        image = Image.open("Source\\assets\imageAucunImage.png")
+        image = Image.open("./assets/imageAucunImage.png")
         
         img = ImageTk.PhotoImage(image)
 
@@ -149,3 +149,15 @@ class ParametrageView(Frame):
     
     def getFonction(self):
         return self.fonctionSeletionnerImage,self.fonctionActualiserImage,self.fonctionValider,self.fonctionSlidermutiplicateur
+    
+    def restart(self):
+
+        image = Image.open("./assets/imageAucunImage.png")
+        
+        img = ImageTk.PhotoImage(image)
+        self.image.configure(image=img)
+        self.image.image = img
+        self.cheminVersImage.delete(0,"end")
+        
+        self.sliderDimention.setValeur(1)
+        self.imageAgrendissement.delete("all")

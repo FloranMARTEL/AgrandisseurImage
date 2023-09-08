@@ -6,13 +6,11 @@ class ModelEnregistrement():
 
         dimentionImage = image.size
         self.image = image.resize((dimentionImage[0]*AgrendissementX, dimentionImage[1]*AgrendissementY),Image.NEAREST)
-        print(type(self.image))
 
     
     def sauvgarder(self,cheminDossier,NomFichier):
         
         destination = cheminDossier+"/"+NomFichier
-        print(destination)
         self.image.save(destination)
 
     
