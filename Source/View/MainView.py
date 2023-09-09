@@ -7,7 +7,7 @@ class MainView(Tk):
     def __init__(self):
         super().__init__()
 
-        self.title("Agrendisseur Image")
+        self.title("Agrandisseur Image")
         self.iconbitmap('assets/icon_X10.ico')
         self.resizable(width=False, height=False)
 

@@ -26,7 +26,7 @@ class ParametrageView(Frame):
 
         frameInputSelectionImage = Frame(frameLeft)
 
-        self.BoutonSelectionImage = Button(frameInputSelectionImage,text="choisire une image")
+        self.BoutonSelectionImage = Button(frameInputSelectionImage,text="choisir une image")
         self.cheminVersImage = Entry(frameInputSelectionImage,width=40)
         self.boutonactualiserImage = Button(frameInputSelectionImage,text="🗘")
 
@@ -46,7 +46,7 @@ class ParametrageView(Frame):
         frameSlider = Frame(frameRight,highlightbackground="Black", highlightthickness=2)
         
         
-        self.sliderDimention = Slider(frameSlider,"mutliplicateur",300)
+        self.sliderDimention = Slider(frameSlider,"multiplicateur",300)
         self.BoutonPlusSlider = Button(frameSlider,text="Plus")
 
         #grid

@@ -15,13 +15,15 @@ class EcouteurSelectionImage():
 
         cheminFichier = askopenfilename()
 
-        self.EnregistrerView.cheminVersImage.delete(0,"end")
-        self.EnregistrerView.cheminVersImage.insert(0, cheminFichier)
+        if cheminFichier != "":
 
-        self.EnregistrerView.modifierImageSelectioner(cheminFichier)
+            self.EnregistrerView.cheminVersImage.delete(0,"end")
+            self.EnregistrerView.cheminVersImage.insert(0, cheminFichier)
 
-        valeurAgrendisement = self.EnregistrerView.sliderDimention.getValeur()
-        self.EnregistrerView.modifierImageAgrendissement(cheminFichier,valeurAgrendisement,valeurAgrendisement)
+            self.EnregistrerView.modifierImageSelectioner(cheminFichier)
+
+            valeurAgrendisement = self.EnregistrerView.sliderDimention.getValeur()
+            self.EnregistrerView.modifierImageAgrendissement(cheminFichier,valeurAgrendisement,valeurAgrendisement)
 
 
         
