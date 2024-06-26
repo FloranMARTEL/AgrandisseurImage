@@ -17,8 +17,6 @@ class MainView(Tk):
         self.historiquePage : list[Frame] = [self.page]
         self.page.pack()
 
-        #self.update()
-        #print(self.winfo_width(),self.winfo_height())
 
     
     def new(self):
@@ -26,9 +24,6 @@ class MainView(Tk):
 
         self.page.restart()
         
-        #self.page.make()
-        
-        #self.page.pack()
 
     
     def goTo(self,page : Frame):

@@ -47,11 +47,11 @@ class ParametrageView(Frame):
         
         
         self.sliderDimention = Slider(frameSlider,"multiplicateur",300)
-        self.BoutonPlusSlider = Button(frameSlider,text="Plus")
+
 
         #grid
         self.sliderDimention.grid(row=0,column=0)
-        self.BoutonPlusSlider.grid(row=1,column=0,sticky=E)
+
 
         self.imageAgrendissement = Canvas(frameRight,height=300,width=300,highlightbackground="Black", highlightthickness=2)
         
